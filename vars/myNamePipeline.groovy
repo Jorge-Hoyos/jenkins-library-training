@@ -36,7 +36,7 @@ def call (body) {
         }
       }
       stage('echo all variables') {
-        when { expression { return echoVariables } }
+        when { expression { return echoVariables == 'true' } }
         steps {
           script {
             pipelineParams.each { println "$it.key: $it.value" }
