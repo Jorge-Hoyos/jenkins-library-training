@@ -7,7 +7,7 @@ def call (body) {
   pipelineParams.each { println(it) }
 
   // Definicion de variables por defecto, si no estan en el Jenkinsfile
-  pipelineParams.pipelineTemplateName = This.getClass().toString.split(' ')[1]
+  pipelineParams.pipelineTemplateName = this.getClass().toString.split(' ')[1]
 
   /*
   Pipeline structure
