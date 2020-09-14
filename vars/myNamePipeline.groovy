@@ -34,9 +34,11 @@ def call (body) {
           sh ("echo name of the template is ${pipelineParams.pipelineTemplateName}")
         }
       }
-      stage('echo all variables'){
-        script{
-          pipelineParams.each { println "$it.key: $it.value" }
+      stage('echo all variables') {
+        steps {
+          script {
+            pipelineParams.each { println "$it.key: $it.value" }
+          }
         }
       }
     }
