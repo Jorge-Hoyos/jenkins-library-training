@@ -14,6 +14,7 @@ def call (body) {
   // ?: busca la variable, si no la encuentra le asigna el valor por defecto
 
   javaVersion = pipelineParams.javaVersion ?: '1.8'
+  echoVariables = pipelineParams.echoVariables ?: true
 
   /*
   Pipeline structure
@@ -35,6 +36,7 @@ def call (body) {
         }
       }
       stage('echo all variables') {
+        when { expression { return pipelineParams['echoVariables'] } }
         steps {
           script {
             pipelineParams.each { println "$it.key: $it.value" }

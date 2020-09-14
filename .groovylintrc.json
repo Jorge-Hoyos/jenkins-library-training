@@ -1,20 +1,20 @@
 {
-    "extends": "recommended",
-    "rules": {
-        "ImplicitClosureParameter": {
-            "enabled": false
-        },
-        "MethodParameterTypeRequired": {
-            "enabled": false
-        },
-        "MethodReturnTypeRequired": {
-            "enabled": false
-        },
-        "NestedBlockDepth": {
-            "enabled": false
-        },
-        "NoDef": {
-            "enabled": false
-        }
+  "extends": "recommended",
+  "rules": {
+    "ImplicitClosureParameter": {
+      "enabled": false
+    },
+    "MethodParameterTypeRequired": {
+      "enabled": false
+    },
+    "MethodReturnTypeRequired": {
+      "enabled": false
+    },
+    "NestedBlockDepth": {
+      "enabled": false
+    },
+    "NoDef": {
+      "enabled": false
     }
+  }
 }
