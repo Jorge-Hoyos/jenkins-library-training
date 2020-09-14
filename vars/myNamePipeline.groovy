@@ -1,6 +1,8 @@
 def call (body) {
   // Estas lineas siempre deben estar en el pipeline, me pasan las variables que tenga definicas a pipelineParams
-  def pipelineParams = [:]
+  // creamos un mapa vacio que va a tener las variables del body
+  pipelineParams = [:]
+
   body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = pipelineParams
   body()
@@ -8,6 +10,10 @@ def call (body) {
 
   // Definicion de variables por defecto, si no estan en el Jenkinsfile
   pipelineParams.pipelineTemplateName = this.getClass().toString().split(' ')[1]
+
+  // ?: busca la variable, si no la encuentra le asigna el valor por defecto
+
+  javaVersion = pipelineParams.javaVersion ?: '1.8'
 
   /*
   Pipeline structure
@@ -26,6 +32,11 @@ def call (body) {
       stage ('echo Default variables') {
         steps {
           sh ("echo name of the template is ${pipelineParams.pipelineTemplateName}")
+        }
+      }
+      stage('echo all variables'){
+        script{
+          pipelineParams.each { println "$it.key: $it.value" }
         }
       }
     }
