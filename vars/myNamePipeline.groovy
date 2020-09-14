@@ -1,7 +1,7 @@
 def call (body) {
   // Estas lineas siempre deben estar en el pipeline, me pasan las variables que tenga definicas a pipelineParams
   def pipelineParams = [:]
-  body.resolverStrategy = Closure.DELEGATE_FIRST
+  body.resolveStrategy = Closure.DELEGATE_FIRST
   body.delegate = pipelineParams
   body()
   pipelineParams.each { println(it) }
