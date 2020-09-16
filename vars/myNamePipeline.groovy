@@ -44,5 +44,12 @@ def call (body) {
         }
       }
     }
+    post {
+      always {
+        script {
+          slack_notification_pipeline('SUCCESS')
+        }
+      }
+    }
   }
 }
