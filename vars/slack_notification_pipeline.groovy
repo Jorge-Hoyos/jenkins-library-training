@@ -1,3 +1,4 @@
 def call(String buildStatus = 'FAILURE', String customMessage = null){
-  slackSend color: "good", message: "Message from Jenkins Pipeline"
+  summary = "${Message from Jenkins Pipeline} (<${env.BUILD_URL}|Open>)"
+  slackSend color: "good", message: summary
 }
